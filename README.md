@@ -2,9 +2,9 @@
 
 > Dining philosophers — threads & mutexes in C
 
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![42 Project](https://img.shields.io/badge/42-Project-000000?style=for-the-badge)
-![Threads](https://img.shields.io/badge/Threads-Concurrency-blue?style=for-the-badge)
+![C](https://img.shields.io/badge/C-73daca?style=for-the-badge&logo=c&logoColor=1a1b26&labelColor=1a1b26)
+![42 Project](https://img.shields.io/badge/42-Project-bb9af7?style=for-the-badge&labelColor=1a1b26)
+![Threads](https://img.shields.io/badge/Threads-7aa2f7?style=for-the-badge&labelColor=1a1b26)
 
 ---
 
