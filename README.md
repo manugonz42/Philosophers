@@ -1,56 +1,133 @@
-# Philosophers
+# 🍝 Philosophers
 
-![enter image description here](https://pctr.krosf.com/assets/capture_2020-06-05-21-19-58.png)
+> Dining philosophers — threads & mutexes in C
 
-## Overview
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![42 Project](https://img.shields.io/badge/42-Project-000000?style=for-the-badge)
+![Threads](https://img.shields.io/badge/Threads-Concurrency-blue?style=for-the-badge)
 
-Welcome to Project 42 Philosophers! This collaborative initiative delves into the world of parallel computing by tackling the classic dining philosophers problem. The project seamlessly integrates philosophical challenges with concurrent programming, offering a unique and intellectually stimulating experience.
+---
 
-## Key Features
+## 🎯 About
 
-- **Parallel Computing:** Delve into the world of parallelism to optimize solutions.
-- **Skill Enhancement:** Sharpen your programming skills while unraveling the mysteries of parallel execution.
+Philosophers is a 42 school project that implements the classic **Dining Philosophers Problem**. This project teaches fundamental concepts of:
 
-## Getting Started
+- **Threads** — Creating and managing concurrent execution
+- **Mutexes** — Synchronizing access to shared resources
+- **Race conditions** — Understanding and preventing data races
+- **Deadlocks** — Avoiding circular waiting conditions
+- **Process synchronization** — Coordinating multiple processes
 
-### Rules
+---
 
-Before running the project, it's essential to understand the following rules:
+## 📋 The Problem
 
-1. **Number of Philosophers:**
-   - Specify the total number of philosophers as a command-line argument.
+Five philosophers sit around a circular table. Each philosopher alternates between **thinking** and **eating**. Between each philosopher, there is a shared fork. To eat, a philosopher needs **two forks** (left and right).
 
-2. **Time Constraints:**
-   - Adjust time constraints for various actions, including `time_to_die`, `time_to_eat`, and `time_to_sleep`.
+### Rules:
+1. Each philosopher must **pick up** both forks to eat
+2. Forks are **shared** between adjacent philosophers
+3. Philosophers must **not starve**
+4. No **deadlock** should occur
 
-3. **Number of Times Each Philosopher Must Eat:**
-   - Optionally set the number of times each philosopher must eat before the simulation ends.
+---
 
-4. **Order of Execution:**
-   - When running the executable, ensure the options are provided in the correct order: `[number_of_philosophers] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_times_each_philosopher_must_eat]`.
+## ✨ Features
 
-To get started with Project 42 Philosophers, follow these steps:
+- 🧵 **Thread-based implementation** — Each philosopher is a thread
+- 🔒 **Mutex synchronization** — Protecting shared forks
+- ⏱️ **Time management** — Configurable timing parameters
+- 📊 **Status display** — Real-time philosopher status
+- 🚫 **Deadlock prevention** — Algorithm to avoid deadlocks
+- 💀 **Death detection** — Detecting philosopher death
 
-1. **Clone the repository:**
-    ```bash
-    git clone git@github.com:manugonz42/Philosophers.git
-    ```
+---
 
-2. **Navigate to the project directory:**
-    ```bash
-    cd Philosophers
-    ```
+## 🛠 Requirements
 
-3. **Compile the code:**
-    ```bash
-    make
-    ```
+- C compiler (gcc or clang)
+- Make
+- pthread library
 
-4. **Run the executable:**
-    ```bash
-    ./philosophers [number_of_philosophers] [time_to_die] [time_to_eat] [time_to_sleep] *[number_of_times_each_philosopher_must_eat]
-    ```
+---
 
-Let's shape the future of parallel computing
+## ▶️ Usage
 
-#42Philosophers #ParallelComputing #ProgrammingChallenge
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/manugonz42/Philosophers.git
+   cd Philosophers
+   ```
+
+2. Compile the project:
+   ```bash
+   make
+   ```
+
+3. Run the simulation:
+   ```bash
+   ./philo [number_of_philosophers] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_times_each_philosopher_must_eat]
+   ```
+
+### Parameters:
+| Parameter | Description |
+|-----------|-------------|
+| `number_of_philosophers` | Total number of philosophers |
+| `time_to_die` | Time (ms) a philosopher can go without eating |
+| `time_to_eat` | Time (ms) it takes to eat |
+| `time_to_sleep` | Time (ms) a philosopher sleeps |
+| `number_of_times_each_philosopher_must_eat` | (Optional) Stop when all have eaten this many times |
+
+---
+
+## 📚 Examples
+
+```bash
+# 5 philosophers, 800ms to die, 200ms to eat, 200ms to sleep
+./philo 5 800 200 200
+
+# 4 philosophers, 410ms to die, 200ms to eat, 200ms to sleep, each must eat 7 times
+./philo 4 410 200 200 7
+
+# 1 philosopher (should die)
+./philo 1 800 200 200
+```
+
+---
+
+## 🔧 Algorithm
+
+The solution uses a **mutex-based approach**:
+
+1. Each fork is protected by a mutex
+2. Philosophers pick up forks in a specific order to avoid deadlock
+3. A monitor thread checks for philosopher death
+4. Time management ensures proper eating/sleeping cycles
+
+---
+
+## 📚 Resources
+
+- [Dining Philosophers Problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
+- [POSIX Threads](https://en.wikipedia.org/wiki/POSIX_Threads)
+- [42 Project Subject](https://projects.intra.42.fr/)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
+
+---
+
+## 📄 License
+
+This project is part of 42 School curriculum.
+
+---
+
+## 📫 Contact
+
+Manuel González - [LinkedIn](https://linkedin.com/in/manugonz42) - manuel.gonzalez@example.com
+
+Project Link: [https://github.com/manugonz42/Philosophers](https://github.com/manugonz42/Philosophers)
